@@ -1,0 +1,40 @@
+#header {
+    width: 100%;
+    margin: 4px;
+    padding: 8px 0;
+}
+
+#header > a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#header > a > .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 8px;
+    font-weight: 800;
+}
+
+#header > a > .icon > img {
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 96px;
+    height: 96px;
+    margin: 0 8px;
+    font-size: 8px;
+}
+#header > a > .title > .titleA {
+    margin-bottom: -4px;
+    font-size: 24px;
+}
+#header > a > .title > .titleB {
+    margin-top: -4px;
+    font-size: 36px;
+}
