@@ -9,6 +9,6 @@ footerElement.innerHTML = `
     </div>
     <div class="links">
         <a class="link">感染症対策について</a>
-        <a class="link" href="/pages/contact.html">お問い合わせ</a>
+        <a class="link" href="${isRoot ? './pages' : '.'}/contact.html">お問い合わせ</a>
     </div>
 `;

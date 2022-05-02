@@ -1,9 +1,9 @@
 const headerElement = document.getElementById('header');
 
 headerElement.innerHTML = `
-    <a href="/">
+    <a href="${isRoot ? '.' : '..'}/index.html">
         <div class="icon">
-            <img src="/media/icon/icon_original_black_1kr.png" alt="Icon" />
+            <img src="${isRoot ? '.' : '..'}/media/icon/icon_original_black_1kr.png" alt="Icon" />
         </div>
         <div class="title">
             <div class="titleA">第55期</div>

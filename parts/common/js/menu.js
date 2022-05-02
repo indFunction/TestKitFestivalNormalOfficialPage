@@ -5,7 +5,7 @@ const isDebugMode = false;
 const menuData = [
     {
         name: 'ホーム',
-        link: '/'
+        link: '/index.html'
     },
     {
         name: '企画者の方へ',
@@ -78,7 +78,10 @@ const itemsElement = menuElement.getElementsByClassName('container')[0].getEleme
     itemsElement.insertAdjacentHTML(
         'beforeend',
         item.link && item.link != '' ?
-            `<a class="item" href="${item.link}">${item.name}</a>` :
+            `<a class="item" href="${isRoot ?
+                '.' + item.link :
+                item.link == '/index.html' ? '..' + item.link : item.link.replace('/pages', '.')
+            }">${item.name}</a>` :
             `<a class="item blank">${item.name}</a>`
     )
 ));
