@@ -1,9 +1,11 @@
 :root {
-    --base: #000;
+    --base: #fff;
     --half: #888;
-    --use: #fff;
-    --accent: #662;
-    --silk: #0008;
+    --use: #000;
+    --accentBase: #448;
+    --accentHalf: #888;
+    --accentUse: #fff;
+    --link: #88f;
 }
 
 html,
@@ -21,7 +23,7 @@ html {
 body {
     position: relative;
     color: var(--use);
-    background-color: var(--half);
+    background-color: var(--base);
 }
 
 #background {
@@ -36,6 +38,7 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
+    filter: invert();
 }
 
 main {
@@ -50,7 +53,6 @@ main {
     min-height: 100vh;
     margin: 0 auto;
     padding: 0 8px;
-    background-color: var(--silk);
     backdrop-filter: blur(8px);
 }
 

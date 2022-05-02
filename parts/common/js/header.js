@@ -3,7 +3,7 @@ const headerElement = document.getElementById('header');
 headerElement.innerHTML = `
     <a href="/">
         <div class="icon">
-            <img src="/media/icon/icon_original_1kr.png" alt="Icon" />
+            <img src="/media/icon/icon_original_black_1kr.png" alt="Icon" />
         </div>
         <div class="title">
             <div class="titleA">第55期</div>

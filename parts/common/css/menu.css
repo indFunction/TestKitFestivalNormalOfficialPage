@@ -18,7 +18,7 @@
     white-space: nowrap;
     font-weight: 600;
     font-size: 14px;
-    background-color: var(--accent);
+    background-color: var(--accentBase);
 }
 #menu > .container {
     flex-grow: 1;
@@ -31,8 +31,8 @@
     right: -16px;
     width: 0;
     height: 0;
-    border-top: solid 16px var(--accent);
-    border-bottom: solid 16px var(--accent);
+    border-top: solid 16px var(--accentBase);
+    border-bottom: solid 16px var(--accentBase);
     border-right: solid 16px transparent;
 }
 #menu > .button {
@@ -42,6 +42,7 @@
     align-items: center;
     width: 120px;
     margin-left: 32px;
+    color: var(--accentUse);
     transition-property: width, margin-left, color, background-color;
     transition: 0.25s;
 }
@@ -54,31 +55,31 @@
     height: 0;
     border-top: solid 16px transparent;
     border-bottom: solid 16px transparent;
-    border-right: solid 16px var(--accent);
+    border-right: solid 16px var(--accentBase);
     transition-property: border-right;
     transition: 0.25s;
 }
 #menu > .button:hover {
     width: calc(120px + 16px);
     margin-left: 16px;
-    color: var(--accent);
-    background-color: var(--half);
+    color: var(--accentBase);
+    background-color: var(--accentHalf);
     transition-property: width, margin-left, color, background-color;
     transition: 0.25s;
 }
 #menu > .button:hover:after {
-    border-right: solid 16px var(--half);
+    border-right: solid 16px var(--accentHalf);
     transition-property: border-right;
     transition: 0.25s;
 }
 #menu > .button:active {
-    color: var(--accent);
-    background-color: var(--use);
+    color: var(--accentBase);
+    background-color: var(--accentUse);
     transition-property: color, background-color;
     transition: 0.05s;
 }
 #menu > .button:active:after {
-    border-right: solid 16px var(--use);
+    border-right: solid 16px var(--accentUse);
     transition-property: border-right;
     transition: 0.05s;
 }
@@ -105,7 +106,7 @@
     left: 0;
     width: calc(100% + 16px);
     height: 0;
-    background-color: var(--accent);
+    background-color: var(--accentBase);
     transition-property: height;
     transition: 0.25s;
 }
@@ -123,7 +124,7 @@
     background: linear-gradient(
         to right,
         transparent 0%,
-        var(--accent) 100%
+        var(--accentBase) 100%
     );
 }
 #menu.isOpen > .container > .items {
@@ -151,8 +152,8 @@
     height: 28px;
     margin: 2px 0;
     padding: 0 16px;
-    border-right: solid 1px var(--use);
-    color: var(--use);
+    border-right: solid 1px var(--accentUse);
+    color: var(--accentUse);
     transition-property: border-right, color, background-color;
     transition: 0.25s;
 }
@@ -160,11 +161,11 @@
     border-right: solid 1px transparent;
 }
 #menu > .container > .items > .item.blank {
-    color: var(--half);
+    color: var(--accentHalf);
 }
 #menu > .container > .items > .item:hover {
-    color: var(--accent);
-    background-color: var(--half);
+    color: var(--accentBase);
+    background-color: var(--accentHalf);
     transition-property: border-right, color, background-color;
     transition: 0.25s;
 }
@@ -172,7 +173,7 @@
     color: transparent;
 }
 #menu > .container > .items > .item:active {
-    background-color: var(--use);
+    background-color: var(--accentUse);
     transition-property: border-right, color, background-color;
     transition: 0.25s;
 }
