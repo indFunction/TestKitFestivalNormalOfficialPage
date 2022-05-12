@@ -41,7 +41,7 @@ const menuData = [
     },
     {
         name: '駐車場混雑状況',
-        link: ''
+        link: '/pages/parking.html'
     },
     {
         name: '各種SNSリンク',

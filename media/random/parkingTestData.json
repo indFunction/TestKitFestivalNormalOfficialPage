@@ -1,0 +1,22 @@
+{
+    "update": "2022.12.31 11:59:59",
+    "comment": "特にありません。",
+    "information": [
+        {
+            "place": "場所A",
+            "status": 1
+        },
+        {
+            "place": "場所B",
+            "status": 2
+        },
+        {
+            "place": "場所C",
+            "status": 3
+        },
+        {
+            "place": "場所D",
+            "status": 0
+        }
+    ]
+}

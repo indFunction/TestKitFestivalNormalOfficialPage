@@ -4,3 +4,5 @@ const isRoot = location.pathname == baseUrl + '/' || location.pathname == baseUr
 const backgroundElement = document.getElementById('background');
 
 backgroundElement.style.backgroundImage = `url('${isRoot ? '.' : '..'}/media/background/background_fhd.jpg')`;
+
+const getJson = (filePath) => fetch(filePath).then((resp) => resp.json());
