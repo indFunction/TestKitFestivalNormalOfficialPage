@@ -35,6 +35,13 @@
     margin-bottom: 0;
 }
 
+.document .math:first-child {
+    margin-top: 0;
+}
+.document .math:last-child {
+    margin-bottom: 0;
+}
+
 .document blockquote {
     border: solid 1px var(--half);
     color: var(--half);
@@ -108,4 +115,7 @@
     left: 8px;
     font-size: 48px;
     color: blue;
+}
+.document .math {
+    overflow-x: auto;
 }
