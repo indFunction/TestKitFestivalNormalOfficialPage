@@ -20,7 +20,7 @@
     padding: 4px;
     text-align: left;
     vertical-align: top;
-    font-weight: 600;
+    font-weight: 400;
     border: solid 1px var(--use);
 }
 
@@ -29,7 +29,7 @@
     padding: 4px;
     text-align: left;
     vertical-align: top;
-    font-weight: 500;
+    font-weight: 300;
     border: solid 1px var(--use);
 }
 

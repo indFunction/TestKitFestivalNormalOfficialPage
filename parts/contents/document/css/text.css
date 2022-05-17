@@ -1,14 +1,14 @@
 .document b {
-    font-weight: 800;
+    font-weight: 500;
 }
 .document i {
-    font-weight: 500;
+    font-weight: 300;
 }
 .document s {
     color: var(--half);
 }
 .document a {
-    font-weight: 600;
+    font-weight: 400;
     color: var(--link);
     border-bottom: solid 1px transparent;
     transition: 0.25s;
@@ -18,19 +18,19 @@
     transition: 0.25s;
 }
 .document q {
-    font-weight: 600;
+    font-weight: 400;
     color: var(--half);
 }
 .document q:before {
     content: "“";
     margin-right: 2px;
-    font-weight: 800;
+    font-weight: 500;
     color: var(--half);
 }
 .document q:after {
     content: "”";
     margin-left: 2px;
-    font-weight: 800;
+    font-weight: 500;
     color: var(--half);
 }
 .document code {

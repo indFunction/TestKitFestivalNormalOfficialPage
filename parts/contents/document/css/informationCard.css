@@ -27,21 +27,21 @@
 .document .informationCard > .head > div > .mainTitle {
     margin: 0;
     padding: 0;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 20px;
 }
 
 .document .informationCard > .head > div > .subTitle {
     margin: 0;
     padding: 0;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 14px;
     color: var(--half);
 }
 .document .informationCard > .head > div > .subTitle a {
     word-break: break-all;
     font-family: 'Courier New', Courier, monospace;
-    font-weight: 800;
+    font-weight: 500;
 }
 
 .document .informationCard > .main {

@@ -16,7 +16,7 @@
     position: relative;
     height: 32px;
     white-space: nowrap;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 14px;
     background-color: var(--accentBase);
 }

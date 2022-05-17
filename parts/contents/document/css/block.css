@@ -18,7 +18,7 @@
     user-select: none;
     position: absolute;
     font-family: 'Courier New', Courier, monospace;
-    font-weight: 800;
+    font-weight: 500;
 }
 .document blockquote:first-child,
 .document .code:first-child,
@@ -75,7 +75,7 @@
     left: 8px;
     padding: 0 4px;
     font-family: 'Courier New', Courier, monospace;
-    font-weight: 800;
+    font-weight: 500;
     font-size: 16px;
     color: var(--base);
     background-color: var(--half);
