@@ -45,7 +45,7 @@ const menuData = [
     },
     {
         name: '各種SNSリンク',
-        link: ''
+        link: '/pages/sns.html'
     },
     {
         name: '活動紹介',
