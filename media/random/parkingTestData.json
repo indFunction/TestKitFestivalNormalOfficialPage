@@ -3,19 +3,19 @@
     "comment": "特にありません。",
     "information": [
         {
-            "place": "場所A",
+            "place": "7号館裏Ｐ",
             "status": 1
         },
         {
-            "place": "場所B",
+            "place": "15号館Ｐ",
             "status": 2
         },
         {
-            "place": "場所C",
+            "place": "久安Ｐ",
             "status": 3
         },
         {
-            "place": "場所D",
+            "place": "高橋川Ｐ",
             "status": 0
         }
     ]

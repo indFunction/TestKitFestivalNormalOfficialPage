@@ -37,7 +37,7 @@ const menuData = [
     },
     {
         name: 'アクセス',
-        link: ''
+        link: '/pages/access.html'
     },
     {
         name: '駐車場混雑状況',
