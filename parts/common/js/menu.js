@@ -12,6 +12,10 @@ const menuData = [
         link: '/pages/forplanner.html'
     },
     {
+        name: '活動紹介',
+        link: '/pages/activity.html'
+    },
+    {
         name: 'プロモーション',
         link: ''
     },
@@ -20,19 +24,11 @@ const menuData = [
         link: ''
     },
     {
-        name: '感染症対策について',
+        name: '企画',
         link: ''
     },
     {
-        name: 'ステージ企画',
-        link: ''
-    },
-    {
-        name: '屋内企画',
-        link: ''
-    },
-    {
-        name: '屋外企画',
+        name: 'スケジュール',
         link: ''
     },
     {
@@ -48,8 +44,8 @@ const menuData = [
         link: '/pages/sns.html'
     },
     {
-        name: '活動紹介',
-        link: '/pages/activity.html'
+        name: '感染症対策について',
+        link: ''
     },
     {
         name: 'お問い合わせ',
