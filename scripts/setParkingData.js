@@ -42,6 +42,8 @@ function setParkingData(parkingData) {
     }).join('\n');
 
     setParkingMap(parkingData, mapData, color);
+
+    setTimeout(() => setParkingMap(parkingData, mapData, color), 1000);
 }
 
 async function setParkingMap(parkingData, mapData, color) {
