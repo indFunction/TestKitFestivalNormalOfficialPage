@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="ja-jp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <title>通年版ウェブサイトの更新手続 | 第55期 金沢工業大学 工大祭 ホームページ</title>
+
+        <meta property="title" content="第55期 金沢工業大学 工大祭 ホームページ" />
+        <meta property="description" content="金沢工業大学にて開催される第55期・工大祭（2022年度）の情報を発信します。" />
+        <meta property="keywords" content="金沢工業大学,KIT,学園祭,工大祭,KIT Festival,第55期,55th" />
+        <meta property="author" content="戸田 欧介" />
+
+        <meta property="og:site_name" content="第55期 金沢工業大学 工大祭 ホームページ" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="通年版ウェブサイトの更新手続 | 第55期 金沢工業大学 工大祭 ホームページ" />
+        <meta property="og:description" content="金沢工業大学にて開催される第55期・工大祭（2022年度）の情報を発信します。" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="../media/hero/hero_fhd.jpg" />
+
+        <link rel="icon" href="../favicon.ico" />
+        <link rel="shortcut" href="../media/icon/icon_fin_1kr.png" />
+
+        <!-- Common Style -->
+
+        <link rel="stylesheet" href="../parts/common/css/global.css" />
+        <link rel="stylesheet" href="../parts/common/css/header.css" />
+        <link rel="stylesheet" href="../parts/common/css/menu.css" />
+        <link rel="stylesheet" href="../parts/common/css/body.css" />
+        <link rel="stylesheet" href="../parts/common/css/footer.css" />
+
+        <!-- Document Style -->
+
+        <link rel="stylesheet" href="../parts/contents/document/css/block.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/heading.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/list.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/paragraph.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/table.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/text.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/decoration.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/spoiler.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/informationCard.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/pictureGallery.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/videoFrameYouTube.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/videoLinkYouTube.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/imageLink.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/screenFrame.css" />
+    </head>
+
+    <body>
+        <div id="background"></div>
+
+        <main>
+            <header id="header"></header>
+            <div id="menu"></div>
+            <div id="body" class="document">
+                <!-- SoF -->
+                    <div class="spoiler" item="ドキュメント一覧">
+                        <ul>
+                            <li>05月 - 06月</li>
+                            <ol>
+                                <li><a href="./fordeveloper_01-01.html">ウェブサイト制作環境；Visual Studio Codeの整備</a></li>
+                                <li><a href="./fordeveloper_01-02.html">FTP操作環境；FFFTPの整備</a></li>
+                                <li><s>通年版ウェブサイトの更新手続</s> (ココ)</li>
+                            </ol>
+                            <li>07月 - 08月</li>
+                            <ol>
+                                <li><a href="./fordeveloper_02-01.html">内部ページ「駐車場混雑状況」に関する環境；APIの整備</a></li>
+                                <li><a href="./fordeveloper_02-02.html">恒例版ウェブサイトを制作する際の注意点</a></li>
+                                <li><a href="./fordeveloper_02-03.html">恒例版ウェブサイトを設置する際の注意点</a></li>
+                            </ol>
+                        </ul>
+                    </div>
+
+                    <h1>通年版ウェブサイトの更新手続</h1>
+
+                    <p>
+                        　本ウェブサイトは可能な限り運営の苦労が減るような設計を目指していますが、ヘッドの情報や場合に応じて更新するべきデータなど、手作業で編集しなければならない箇所が幾つか存在します。本ページでは、一般的な運営を行う際に必要な作業内容を纏めていますので、是非、活用してやってください。
+                    </p>
+
+                    <h2>更新箇所</h2>
+
+                    <ul>
+                        <li><code>https://www2.kanazawa-it.ac.jp/kitfes/</code>に含まれるデータ：<b>第<span class="currentPeriod">**</span>期の恒例版ウェブサイト</b>と<code>https://www2.kanazawa-it.ac.jp/kitfes/store/</code>に含まれるデータ：<b>第<span class="currentPeriod">**</span>期の通年版ウェブサイト</b>を入れ替える。（つまり、トップページに<b>通年版ウェブサイト</b>が格納される。）</li>
+                        <li><b>全てのファイル</b>に含まれる<code>第<span class="currentPeriod">**</span>期</code>という文字列を<code>第<span class="nextPeriod">**</span>期</code>に置換する。</li>
+                        <li><b>全てのファイル</b>に含まれる<code><span class="currentYear">****</span>年度</code>という文字列を<code><span class="nextYear">****</span>年度</code>に置換する。</li>
+                        <li>「<a href="../index.html">ホーム</a>」の「<b>構成概要</b>」を更新する。（委員長や活動人数など。）</li>
+                        <li>「<a href="./forplanner.html">企画者の方へ</a>」の「<b>日程</b>」を初期化する。</li>
+                        <li>「<a href="./activity.html">活動紹介</a>」の各セクションの「<b>総括紹介</b>」を更新する。</li>
+                        <li>「<a href="./contact.html">お問い合わせ</a>」の「<b>ウェブサイトに関して</b>」を更新する。</li>
+                        <li>必要のないHTMLファイルがあれば、アーカイブもしくは削除する。</li>
+                    </ul>
+                <!-- EoF -->
+            </div>
+            <footer id="footer"></footer>
+        </main>
+
+        <!-- Common Script -->
+
+        <script type="text/javascript" src="../parts/common/js/global.js"></script>
+        <script type="text/javascript" src="../parts/common/js/header.js"></script>
+        <script type="text/javascript" src="../parts/common/js/footer.js"></script>
+        <script type="text/javascript" src="../parts/common/js/menu.js"></script>
+
+        <!-- Document Script -->
+
+        <script type="text/javascript" src="../parts/contents/document/js/spoiler.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/informationCard.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/pictureGallery.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/videoFrameYouTube.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/videoLinkYouTube.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/imageLink.js"></script>
+
+        <!-- Other Script -->
+
+        <script>
+            const currentYearElement = document.getElementsByClassName('currentYear');
+            const nextYearElement = document.getElementsByClassName('nextYear');
+            const currentPeriodElement = document.getElementsByClassName('currentPeriod');
+            const nextPeriodElement = document.getElementsByClassName('nextPeriod');
+
+            const date = new Date();
+
+            const currentYear = date.getFullYear() - 1;
+            const nextYear = currentYear + 1;
+            const currentPeriod = currentYear - 1967;
+            const nextPeriod = currentPeriod + 1;
+
+            for (let i = 0; i < currentYearElement.length; i++) currentYearElement[i].innerHTML = currentYear.toString();
+            for (let i = 0; i < nextYearElement.length; i++) nextYearElement[i].innerHTML = nextYear.toString();
+            for (let i = 0; i < currentPeriodElement.length; i++) currentPeriodElement[i].innerHTML = currentPeriod.toString();
+            for (let i = 0; i < nextPeriodElement.length; i++) nextPeriodElement[i].innerHTML = nextPeriod.toString();
+        </script>
+    </body>
+</html>

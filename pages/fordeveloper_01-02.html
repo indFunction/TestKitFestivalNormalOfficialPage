@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="ja-jp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <title>FTP操作環境；FFFTPの整備 | 第55期 金沢工業大学 工大祭 ホームページ</title>
+
+        <meta property="title" content="第55期 金沢工業大学 工大祭 ホームページ" />
+        <meta property="description" content="金沢工業大学にて開催される第55期・工大祭（2022年度）の情報を発信します。" />
+        <meta property="keywords" content="金沢工業大学,KIT,学園祭,工大祭,KIT Festival,第55期,55th" />
+        <meta property="author" content="戸田 欧介" />
+
+        <meta property="og:site_name" content="第55期 金沢工業大学 工大祭 ホームページ" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="FTP操作環境；FFFTPの整備 | 第55期 金沢工業大学 工大祭 ホームページ" />
+        <meta property="og:description" content="金沢工業大学にて開催される第55期・工大祭（2022年度）の情報を発信します。" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="../media/hero/hero_fhd.jpg" />
+
+        <link rel="icon" href="../favicon.ico" />
+        <link rel="shortcut" href="../media/icon/icon_fin_1kr.png" />
+
+        <!-- Common Style -->
+
+        <link rel="stylesheet" href="../parts/common/css/global.css" />
+        <link rel="stylesheet" href="../parts/common/css/header.css" />
+        <link rel="stylesheet" href="../parts/common/css/menu.css" />
+        <link rel="stylesheet" href="../parts/common/css/body.css" />
+        <link rel="stylesheet" href="../parts/common/css/footer.css" />
+
+        <!-- Document Style -->
+
+        <link rel="stylesheet" href="../parts/contents/document/css/block.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/heading.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/list.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/paragraph.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/table.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/text.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/decoration.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/spoiler.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/informationCard.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/pictureGallery.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/videoFrameYouTube.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/videoLinkYouTube.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/imageLink.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/screenFrame.css" />
+    </head>
+
+    <body>
+        <div id="background"></div>
+
+        <main>
+            <header id="header"></header>
+            <div id="menu"></div>
+            <div id="body" class="document">
+                <!-- SoF -->
+                    <div class="spoiler" item="ドキュメント一覧">
+                        <ul>
+                            <li>05月 - 06月</li>
+                            <ol>
+                                <li><a href="./fordeveloper_01-01.html">ウェブサイト制作環境；Visual Studio Codeの整備</a></li>
+                                <li><s>FTP操作環境；FFFTPの整備</s> (ココ)</li>
+                                <li><a href="./fordeveloper_01-03.html">通年版ウェブサイトの更新手続</a></li>
+                            </ol>
+                            <li>07月 - 08月</li>
+                            <ol>
+                                <li><a href="./fordeveloper_02-01.html">内部ページ「駐車場混雑状況」に関する環境；APIの整備</a></li>
+                                <li><a href="./fordeveloper_02-02.html">恒例版ウェブサイトを制作する際の注意点</a></li>
+                                <li><a href="./fordeveloper_02-03.html">恒例版ウェブサイトを設置する際の注意点</a></li>
+                            </ol>
+                        </ul>
+                    </div>
+
+                    <h1>FTP操作環境；FFFTPの整備</h1>
+
+                    <h2>FFFTPとは</h2>
+
+                    <p>
+                        　<a href="http://www2.biglobe.ne.jp/sota/ffftp.html" target="_blank" rel="noreferrer">FFFTP</a>とは、FTP（ファイルを管理する規則に基いて運営される）サーバーへファイルを転送／操作するためのFTPクライアントです。工大祭の公式ホームページはFTPサーバーに格納されたデータが直接ウェブサイトとして表示されるため、ローカル環境で制作／編集したウェブサイトのデータを（FFFTPを介して）工大祭が管理するサーバーへ転送することで、公式ホームページの更新が可能となります。
+                    </p>
+
+                    <h2>FFFTPをインストールする</h2>
+
+                    <ol>
+                        <li>
+                            <p>
+                                FFFTPを<a href="https://github.com/ffftp/ffftp/releases" target="_blank" rel="noreferrer">配布サイト</a>などからダウンロードします。FFFTPは本家での開発が終了しているため、有志によって開発された派生ソフトウェアの使用をお勧めします。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                ダウンロードした実行ファイルを開き、ウィザードに従ってセットアップを進めます。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                インストールが完了したら、FFFTPを起動します。
+                            </p>
+                        </li>
+                    </ol>
+
+                    <h2>サーバーへ接続する・アカウントを設定する</h2>
+
+                    <ol>
+                        <li>
+                            <p>
+                                ソフトウェアを実行すると<q>ホスト一覧</q>より接続先を問われるため、初回の場合は<q>新規ホスト</q>からアカウントの登録を行います。<q>ホストの設定</q>に必要な記入事項は<b>Web系が管理している資料</b>を参照するか、総括など<b>アカウントの情報を知る方</b>に相談してください。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                ホストの設定が完了したら<q>接続</q>を行い、正常にログインできるかを確認します。ファイル一覧の取得に成功すれば設定は完了です。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                次回以降から接続する場合は設定したアカウントが<q>ホスト一覧</q>に表示されるため、それを選択して接続を行います。
+                            </p>
+                        </li>
+                    </ol>
+
+                    <h2>サーバーへファイルを転送／編集する</h2>
+
+                    <ol>
+                        <li>
+                            <p>
+                                ディレクトリーから<q>kitfes</q>というフォルダーを探し、その中に存在するファイル・フォルダーを操作します。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                基本的な操作／挙動はファイル・エクスプローラーと同じ（内部・外部からドラッグ＆ドロップすることも可能）ですが、あくまでも遠隔による操作であることを念頭に置き、<b>破壊的な操作やサーバーに負担を掛けるような行為は慎む</b>ようにお願いします。
+                            </p>
+                        </li>
+                    </ol>
+
+                    <h2>サーバーから切断する</h2>
+
+                    <ol>
+                        <li>
+                            <p>
+                                作業が完了したらメニュータブの<q>接続</q>から<q>切断</q>を行います。
+                            </p>
+                        </li>
+                    </ol>
+
+                    <h2>注意事項</h2>
+
+                    <ul>
+                        <li><span class="red_tc"><b>アカウントの情報を絶対に第三者へ漏洩しない／させないでください。</b></span>もしも情報が漏洩した場合は、速やかに<b>情報処理サービスセンター</b>へ問い合わせてください。</li>
+                        <li>（基本的に不可能だと思いますが）関係のないファイルやフォルダーを無断で操作しないでください。</li>
+                        <li>ファイルをアップロードする場合、その内容が<b>第三者に公開してよいもの</b>なのか、<b>誤表記やミスがない</b>か、などを確認したうえで実行しましょう。</li>
+                    </ul>
+                <!-- EoF -->
+            </div>
+            <footer id="footer"></footer>
+        </main>
+
+        <!-- Common Script -->
+
+        <script type="text/javascript" src="../parts/common/js/global.js"></script>
+        <script type="text/javascript" src="../parts/common/js/header.js"></script>
+        <script type="text/javascript" src="../parts/common/js/footer.js"></script>
+        <script type="text/javascript" src="../parts/common/js/menu.js"></script>
+
+        <!-- Document Script -->
+
+        <script type="text/javascript" src="../parts/contents/document/js/spoiler.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/informationCard.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/pictureGallery.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/videoFrameYouTube.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/videoLinkYouTube.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/imageLink.js"></script>
+    </body>
+</html>

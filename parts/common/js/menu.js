@@ -55,7 +55,11 @@ const menuData = [
 
 const menuDebugData = [
     {
-        name: '( ﾟД|',
+        name: '開発者の方へ',
+        link: '/pages/fordeveloper.html'
+    },
+    {
+        name: 'サンプル',
         link: '/pages/sample.html'
     }
 ];

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="ja-jp">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <title>ウェブサイト制作環境；Visual Studio Codeの整備 | 第55期 金沢工業大学 工大祭 ホームページ</title>
+
+        <meta property="title" content="第55期 金沢工業大学 工大祭 ホームページ" />
+        <meta property="description" content="金沢工業大学にて開催される第55期・工大祭（2022年度）の情報を発信します。" />
+        <meta property="keywords" content="金沢工業大学,KIT,学園祭,工大祭,KIT Festival,第55期,55th" />
+        <meta property="author" content="戸田 欧介" />
+
+        <meta property="og:site_name" content="第55期 金沢工業大学 工大祭 ホームページ" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="ウェブサイト制作環境；Visual Studio Codeの整備 | 第55期 金沢工業大学 工大祭 ホームページ" />
+        <meta property="og:description" content="金沢工業大学にて開催される第55期・工大祭（2022年度）の情報を発信します。" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="../media/hero/hero_fhd.jpg" />
+
+        <link rel="icon" href="../favicon.ico" />
+        <link rel="shortcut" href="../media/icon/icon_fin_1kr.png" />
+
+        <!-- Common Style -->
+
+        <link rel="stylesheet" href="../parts/common/css/global.css" />
+        <link rel="stylesheet" href="../parts/common/css/header.css" />
+        <link rel="stylesheet" href="../parts/common/css/menu.css" />
+        <link rel="stylesheet" href="../parts/common/css/body.css" />
+        <link rel="stylesheet" href="../parts/common/css/footer.css" />
+
+        <!-- Document Style -->
+
+        <link rel="stylesheet" href="../parts/contents/document/css/block.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/heading.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/list.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/paragraph.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/table.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/text.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/decoration.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/spoiler.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/informationCard.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/pictureGallery.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/videoFrameYouTube.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/videoLinkYouTube.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/imageLink.css" />
+        <link rel="stylesheet" href="../parts/contents/document/css/screenFrame.css" />
+    </head>
+
+    <body>
+        <div id="background"></div>
+
+        <main>
+            <header id="header"></header>
+            <div id="menu"></div>
+            <div id="body" class="document">
+                <!-- SoF -->
+                    <div class="spoiler" item="ドキュメント一覧">
+                        <ul>
+                            <li>05月 - 06月</li>
+                            <ol>
+                                <li><s>ウェブサイト制作環境；Visual Studio Codeの整備</s> (ココ)</li>
+                                <li><a href="./fordeveloper_01-02.html">FTP操作環境；FFFTPの整備</a></li>
+                                <li><a href="./fordeveloper_01-03.html">通年版ウェブサイトの更新手続</a></li>
+                            </ol>
+                            <li>07月 - 08月</li>
+                            <ol>
+                                <li><a href="./fordeveloper_02-01.html">内部ページ「駐車場混雑状況」に関する環境；APIの整備</a></li>
+                                <li><a href="./fordeveloper_02-02.html">恒例版ウェブサイトを制作する際の注意点</a></li>
+                                <li><a href="./fordeveloper_02-03.html">恒例版ウェブサイトを設置する際の注意点</a></li>
+                            </ol>
+                        </ul>
+                    </div>
+
+                    <h1>ウェブサイト制作環境；Visual Studio Codeの整備</h1>
+
+                    <h2>Visual Studio Codeとは</h2>
+
+                    <p>
+                        　<a href="https://azure.microsoft.com/ja-jp/products/visual-studio-code/" target="_blank" rel="noreferrer">Visual Studio Code</a>（以下、VS Code）とは<a href="https://azure.microsoft.com/ja-jp/" target="_blank" rel="noreferrer">Microsoft Azure</a>が提供する、主にコードが含まれるテキスト・ファイルや複数のファイルで構成されたプロジェクトを編集するためのIDE（統合開発環境）です。その用途の一つにはウェブサイト開発も含まれており、本ウェブサイトを更新／編集する際の強力／効率的なツールとなるため、Web系ではVS Codeの導入・使用を推奨しています。
+                    </p>
+
+                    <p>
+                        　本ページではVS Codeを整備するまでの流れを解説するため、VS Code以外のIDE（<a href="https://atom.io/" target="_blank" rel="noreferrer">Atom</a>や<a href="https://www.jetbrains.com/ja-jp/webstorm/" target="_blank" rel="noreferrer">WebStorm</a>など）を日常的に使用している方や、あるいは白黒のテキスト・エディターでコーディングをしている猛者などは、以降の解説を読み飛ばしてください。
+                    </p>
+
+                    <h2>VS Codeをインストールする</h2>
+
+                    <ol>
+                        <li>
+                            <p>
+                                VS Codeを<a href="https://azure.microsoft.com/ja-jp/products/visual-studio-code/" target="_blank" rel="noreferrer">配布サイト</a>などからダウンロードします。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                ダウンロードした実行ファイル（WindowsであればEXEファイル、MacであればZIPファイル内に含まれるアプリケーション）を開き、ウィザードに従ってセットアップを進めます。
+                            </p>
+
+                            <p>
+                                この際、追加タスクの
+                            </p>
+
+                            <ul>
+                                <li><q>エクスプローラーのファイル コンテキスト メニューに [Code で開く] アクションを追加する</q></li>
+                                <li><q>エクスプローラーのディレクトリ コンテキスト メニューに [Code で開く] アクションを追加する</q></li>
+                            </ul>
+
+                            <p>
+                                を選択することをお勧めします。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                インストールが完了したら、VS Codeを起動します。
+                            </p>
+                        </li>
+                    </ol>
+
+                    <h2>VS Codeに拡張機能を追加する</h2>
+
+                    <p>
+                        　VS Codeには多くの拡張機能が存在し、それらを追加することで効率的／自分好みの開発環境を構成することができます。その中でも、個人的にお勧めする拡張機能を幾つか紹介します。
+                    </p>
+
+                    <div
+                        class="item informationCard"
+                        mainTitle="Japanese Language Pack for Visual Studio Code"
+                        subTitle="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja"
+                        icon="https://ms-ceintl.gallerycdn.vsassets.io/extensions/ms-ceintl/vscode-language-pack-ja/1.69.6290923/1656494707112/Microsoft.VisualStudio.Services.Icons.Default"
+                    >
+                        　VS Codeを日本語表記に変更します。
+                    </div>
+
+                    <div
+                        class="item informationCard"
+                        mainTitle="Live Server"
+                        subTitle="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"
+                        icon="https://ritwickdey.gallerycdn.vsassets.io/extensions/ritwickdey/liveserver/5.7.5/1646738284779/Microsoft.VisualStudio.Services.Icons.Default"
+                    >
+                        　動的な簡易サーバーを構築します。これにより絶対パスの指定やJava Scriptの使用が可能になります。（最も、工大祭の公式ホームページでは相対パスを強制されますが…。）
+                    </div>
+
+                    <div
+                        class="item informationCard"
+                        mainTitle="Code Spell Checker"
+                        subTitle="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker"
+                        icon="https://streetsidesoftware.gallerycdn.vsassets.io/extensions/streetsidesoftware/code-spell-checker/2.2.5/1655910120296/Microsoft.VisualStudio.Services.Icons.Default"
+                    >
+                        　テキストに含まれる英単語のスペルを確認します。個人的に慣れない単語の誤表記や打ち損じに気付けないことが多いので、かなり助けられます。
+                    </div>
+
+                    <div
+                        class="item informationCard"
+                        mainTitle="Color Highlight"
+                        subTitle="https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight"
+                        icon="https://naumovs.gallerycdn.vsassets.io/extensions/naumovs/color-highlight/2.5.0/1631530639439/Microsoft.VisualStudio.Services.Icons.Default"
+                    >
+                        　カラーコードの色を強調します。標準機能よりも少しだけ分かりやすいです。
+                    </div>
+
+                    <div
+                        class="item informationCard"
+                        mainTitle="indent-rainbow"
+                        subTitle="https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow"
+                        icon="https://oderwat.gallerycdn.vsassets.io/extensions/oderwat/indent-rainbow/8.3.1/1649543509070/Microsoft.VisualStudio.Services.Icons.Default"
+                    >
+                        　インデント（タブ）に色を付与します。無駄な空白を排除する際に便利です。
+                    </div>
+
+                    <!-- div
+                        class="item informationCard"
+                        mainTitle="Git Graph"
+                        subTitle="https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph"
+                        icon="https://mhutchie.gallerycdn.vsassets.io/extensions/mhutchie/git-graph/1.30.0/1617594001998/Microsoft.VisualStudio.Services.Icons.Default"
+                    >
+                        　Gitリポジトリーを可視化します。必要な情報（コミットIDや状態）が簡単に入手できる他、ブランチの操作やコミットごとに比較することも可能です。
+                    </div -->
+                <!-- EoF -->
+            </div>
+            <footer id="footer"></footer>
+        </main>
+
+        <!-- Common Script -->
+
+        <script type="text/javascript" src="../parts/common/js/global.js"></script>
+        <script type="text/javascript" src="../parts/common/js/header.js"></script>
+        <script type="text/javascript" src="../parts/common/js/footer.js"></script>
+        <script type="text/javascript" src="../parts/common/js/menu.js"></script>
+
+        <!-- Document Script -->
+
+        <script type="text/javascript" src="../parts/contents/document/js/spoiler.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/informationCard.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/pictureGallery.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/videoFrameYouTube.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/videoLinkYouTube.js"></script>
+        <script type="text/javascript" src="../parts/contents/document/js/imageLink.js"></script>
+    </body>
+</html>
