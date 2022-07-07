@@ -75,9 +75,461 @@
 
                     <h1>内部ページ「駐車場混雑状況」に関する環境；APIの整備</h1>
 
+                    <h2>APIとは</h2>
+
                     <p>
-                        ( ﾟДﾟ) WIP!
+                        　<b>API</b>：<b>Application Programming Interface</b>とは、名前の通りアプリケーションをプログラミングするためのインターフェース（仲介）を担うものです。例えばウェブサイト内で投稿が可能なコメント（送信フォーム）の機能を管理するとき、HTML内のJava Scriptでは仕様に限界があると思います。そこで活躍するのが（ウェブ）APIで、コメントが要求されたら指定された範囲のデータを返したり、コメントが送信されたらデータベースに内容を追加するなど、ウェブページでは難しい機能／機構を実現することができます。
                     </p>
+
+                    <h2>Google Apps Scriptの利用</h2>
+
+                    <p>
+                        　APIはサーバー上で動かすものですが、環境を構築したりデータベースを用意したりなど、自前で用意する場合は複雑な準備が必要になります。そこで、Web系では<a href="https://www.google.com/" target="_blank" rel="noreferrer">Google</a>が提供する<a href="https://workspace.google.co.jp/intl/ja/products/apps-script/" target="_blank" rel="noreferrer">Google Apps Script</a>（以下、<b>GAS</b>）というサービスを用いて、駐車場混雑状況を管理するシステム、登録するためのフォーム、及び（ﾅﾝﾁｬｯﾃ）データベースを動かします。
+                    </p>
+
+                    <h2>システムを整備する</h2>
+
+                    <p>
+                        　当然ながら、Google DriveやGASを利用する場合は<b>Google アカウント</b>が必要になります。できるだけ機密性の高いアカウントを使用しましょう。
+                    </p>
+
+                    <h3>フォルダーを作成する</h3>
+
+                    <ol>
+                        <li>
+                            <p>
+                                初めに<a href="https://drive.google.com/drive/" target="_blank" rel="noreferrer">Google Drive</a>へログインし、適当なフォルダー（例えば「<code>金沢工業大学 工大祭 駐車場管理システム</code>」など）を作成します。
+                            </p>
+                        </li>
+                    </ol>
+
+                    <h3>Google フォームを作成する</h3>
+
+                    <ol>
+                        <li>
+                            <p>
+                                フォルダー内に<q>Google フォーム</q>からフォームを作成します。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                フォームが開かれるので、フォームの名前を（例えば「<code>駐車場管理システム (フォーム)</code>」などに）変更します。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                フォームの内容を下記のように設定します。
+                            </p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>質問</th>
+                                        <th>項目</th>
+                                        <th>内容</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2">ヘッダー</td>
+                                        <td>タイトル</td>
+                                        <td>駐車場混雑状況 報告フォーム</td>
+                                    </tr>
+                                    <tr>
+                                        <td>説明</td>
+                                        <td>金沢工業大学の工大祭の公式ホームページにて、駐車場の混雑状況を表示するための情報を集計します。</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="5">質問</td>
+                                        <td>タイトル</td>
+                                        <td>場所ごとの混雑状況を入力してください。</td>
+                                    </tr>
+                                    <tr>
+                                        <td>形式</td>
+                                        <td><q>選択式（グリッド）</q></td>
+                                    </tr>
+                                    <tr>
+                                        <td>行 (例)</td>
+                                        <td>
+                                            <ul>
+                                                <li>7号館裏Ｐ</li>
+                                                <li>15号館Ｐ</li>
+                                                <li>久安Ｐ</li>
+                                                <li>高橋川Ｐ</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>列</td>
+                                        <td>
+                                            <ul>
+                                                <li>変更なし</li>
+                                                <li>使用できない</li>
+                                                <li>空いている</li>
+                                                <li>混んでいる</li>
+                                                <li>埋まっている</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>必須</td>
+                                        <td><q>あり</q></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3">質問</td>
+                                        <td>タイトル</td>
+                                        <td>特別に告知する事項があれば記述してください。</td>
+                                    </tr>
+                                    <tr>
+                                        <td>形式</td>
+                                        <td><q>記述式</q></td>
+                                    </tr>
+                                    <tr>
+                                        <td>必須</td>
+                                        <td><q>なし</q></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                初期状態を用意するために、<q>プレビュー</q>からフォームを回答します。混雑状況については全て<q>使用できない</q>を選択し、コメントについては自由に（例えば「<code>特にありません。</code>」などと）記述し、送信します。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                フォームは<b>データ乃至ウェブサイトの一部を編集することが可能な代物</b>なので、運用時はURLなどの管理に気を付けましょう。
+                            </p>
+                        </li>
+                    </ol>
+
+                    <h3>Google スプレッドシートを作成する</h3>
+
+                    <ol>
+                        <li>
+                            <p>
+                                フォームの<q>回答</q>のタブから<q>スプレッドシートの作成</q>をします。同時に名前も（例えば「<code>駐車場管理システム (データ)</code>」などに）変更します。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                スプレッドシートを開き、タブにある<q>拡張機能</q>から<q>Apps Script</q>を選択します。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                プロジェクトが開かれるので、プロジェクトの名前を（例えば「<code>駐車場管理システム (システム)</code>」などに）変更します。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                <q>コード.gs</q>に以下のコードを追加します。また、余裕があれば名前を「<code>parkingSystemController.gs</code>」などに変更しましょう。
+                            </p>
+
+                            <div class="code">
+                                <div class="codeType">Java Script</div>
+                                <pre>
+const folderId = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+const fileName = 'data.json';
+
+function createJsonFile() {
+    const folder = DriveApp.getFolderById(folderId);
+    const blob = getBlobByData();
+
+    folder.createFile(blob);
+}
+
+function updateJsonFile() {
+    const folder = DriveApp.getFolderById(folderId);
+    const fileId = folder.getFilesByName(fileName).next().getId();
+    const blob = getBlobByData();
+    const resource = { uploadType: 'media' };
+
+    Drive.Files.update(resource, fileId, blob);
+}
+
+function getBlobByData() {
+    return Utilities.newBlob('', 'text/plain', fileName).setDataFromString(getData(), 'UTF-8');
+}
+
+function getData() {
+    const sheet = SpreadsheetApp.getActiveSheet();
+
+    const sheetMaxRow = sheet.getLastRow();
+    const sheetMaxColumn = sheet.getLastColumn();
+
+    const data = {
+        update: getStringDate(sheet.getRange(sheetMaxRow, 1).getValue()),
+        comment: findLastData(sheet.getRange(2, sheetMaxColumn, sheetMaxRow - 1, 1).getValues().map((item) => item[0]), ''),
+        information: getInformation(
+            sheet.getRange(1, 2, 1, sheetMaxColumn - 2).getValues(),
+            sheet.getRange(2, 2, sheetMaxRow - 1, sheetMaxColumn - 2).getValues()
+        )
+    };
+
+    // Logger.log(data);
+
+    return JSON.stringify(data, null, '\t');
+}
+
+function getStringDate(date) {
+    return [
+        String(date.getFullYear()).padStart(4, '0'),
+        String(date.getMonth() + 1).padStart(2, '0'),
+        String(date.getDate()).padStart(2, '0')
+    ].join('.') + ' ' + [
+        String(date.getHours()).padStart(2, '0'),
+        String(date.getMinutes()).padStart(2, '0'),
+        String(date.getSeconds()).padStart(2, '0')
+    ].join(':');
+}
+
+function findLastData(data, skip) {
+    for (let i = data.length - 1; i >= 0; i--) {
+        if (data[i] != skip) return data[i];
+    }
+
+    return undefined;
+}
+
+function getInformation(informationName, informationStatus) {
+    const message = [
+        '使用できない',
+        '空いている',
+        '混んでいる',
+        '埋まっている'
+    ];
+
+    let res = [];
+
+    for (let i in informationName[0]) {
+        res.push({
+            place: cutString(informationName[0][i], '[', ']'),
+            status: message.indexOf(findLastData(informationStatus.map((item) => item[i]), '変更なし'))
+        });
+    }
+
+    return res;
+}
+
+function cutString(text, startString, endString) {
+    return text.substring(text.indexOf(startString) + 1, text.indexOf(endString));
+}
+                                </pre>
+                            </div>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                1行目の<code>folderId</code>に作成したフォルダーのIDを代入します。
+                            </p>
+
+                            <div class="point">
+                                <p>
+                                    IDとは、フォルダーを共有した際に生成されるURLのハッシュ値（例えばURLが<code>https://drive.google.com/drive/folders/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX?usp=sharing</code>の場合、<code>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</code>に該当するもの）です。
+                                </p>
+                            </div>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                <q>実行する関数を選択</q>から<q>createJsonFile</q>を選び、<q>実行</q>します。無事に完了し、フォルダー内に「<code>data.json</code>」というファイルが生成されていれば大丈夫です。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                左側のメニューから<q>トリガー</q>へ移り、<q>トリガーを追加</q>します。設定については下記の通りです。
+                            </p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>項目</th>
+                                        <th>内容</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>実行する関数を選択</td>
+                                        <td><q>updateJsonFile</q></td>
+                                    </tr>
+                                    <tr>
+                                        <td>デプロイ時に実行</td>
+                                        <td><q>Head</q></td>
+                                    </tr>
+                                    <tr>
+                                        <td>イベントのソースを選択</td>
+                                        <td><q>スプレッドシートから</q></td>
+                                    </tr>
+                                    <tr>
+                                        <td>イベントの種類を選択</td>
+                                        <td><q>フォーム送信時</q></td>
+                                    </tr>
+                                    <tr>
+                                        <td>エラー通知設定</td>
+                                        <td><q>今すぐ通知を受け取る</q></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                <q>保存</q>します。また、許可を要求されるので承諾します。
+                            </p>
+                        </li>
+                    </ol>
+
+                    <h3>GASを作成する</h3>
+
+                    <ol>
+                        <li>
+                            <p>
+                                フォルダー内に<q>Google Apps Script</q>からスクリプトを作成します。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                プロジェクトが開かれるので、プロジェクトの名前を（例えば「<code>駐車場管理システム (API)</code>」などに）変更します。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                <q>コード.gs</q>に以下のコードを追加します。また、余裕があれば名前を「<code>getJsonData.gs</code>」などに変更しましょう。
+                            </p>
+
+                            <div class="code">
+                                <div class="codeType">Java Script</div>
+                                <pre>
+const folderId = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+const fileName = 'data.json';
+
+function doGet() {
+    const res = getJsonByFile(true, true);
+
+    return res;
+}
+
+function getJsonByFile(returnOutputObject, returnJson) {
+    const folder = DriveApp.getFolderById(folderId);
+    const fileId = folder.getFilesByName(fileName).next();
+    const content = fileId.getBlob().getDataAsString('UTF-8');
+
+    if (returnOutputObject) {
+        let out = ContentService.createTextOutput();
+        out.setMimeType(returnJson ? ContentService.MimeType.JSON : ContentService.MimeType.TEXT);
+        out.setContent(content);
+
+        return out;
+    } else {
+        return returnJson ? JSON.parse(content) : content;
+    }
+}
+                                </pre>
+                            </div>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                先程と同様に、1行目の<code>folderId</code>に作成したフォルダーのIDを代入します。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                <q>デプロイ</q>から<q>新しいデプロイ</q>を選び、<q>種類の選択</q>から<q>ウェブアプリ</q>を選びます。設定については下記の通りです。
+                            </p>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>項目</th>
+                                        <th>内容</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>説明</td>
+                                        <td>JSONデータを返します。</td>
+                                    </tr>
+                                    <tr>
+                                        <td>次のユーザーとして実行</td>
+                                        <td><q>デフォルト</q></td>
+                                    </tr>
+                                    <tr>
+                                        <td>アクセスできるユーザー</td>
+                                        <td><q>全員</q></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                <q>デプロイ</q>します。また、許可を要求されるので承諾します。
+                            </p>
+                        </li>
+                    </ol>
+
+                    <h3>ウェブサイトを編集する</h3>
+
+                    <ol>
+                        <li>
+                            <p>
+                                デプロイが完了するとウェブアプリのURLが表示されるので、コピーします。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                <code>/scripts/setParkingData.js</code>の2行目に、先程コピーしたURLを挿入します。
+                            </p>
+
+                            <br />
+                        </li>
+                        <li>
+                            <p>
+                                場所に変更がある場合はマップを更新する必要があります。マップについては雰囲気で頑張ってください。
+                            </p>
+                        </li>
+                    </ol>
+
+                    <h2>システムを利用する</h2>
+
+                    <ol>
+                        <li>
+                            <p>
+                                フォームに情報を入力するだけです。やったね。
+                            </p>
+                        </li>
+                    </ol>
                 <!-- EoF -->
             </div>
             <footer id="footer"></footer>
